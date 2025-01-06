@@ -20,6 +20,6 @@ jobs:
       - name: rust version
         run: |
           docker compose -f support/ci/docker-compose.yml run --rm rust rustc --version
-       - name: tests
+      - name: tests
         run: |
           docker compose -f support/ci/docker-compose.yml run --rm rust /usr/local/src/testing/test.sh /usr/local/src/school
