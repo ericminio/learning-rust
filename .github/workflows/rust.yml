@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: run tests
+    name: learning Rust
     runs-on: ubuntu-latest
 
     steps:
@@ -15,15 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: info
         run: |
-          pwd
-          ls -l
-          docker --version
           rustc --version
-      - name: inspect
-        run: |
-          ls -l /usr/local/src
-          ls -l /usr/local/src/school
-          ls -l /usr/local/src/testing
       - name: tests
         run: |
           cd support/ci
