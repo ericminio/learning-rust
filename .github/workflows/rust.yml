@@ -20,6 +20,9 @@ jobs:
       - name: rust version
         run: |
           docker compose -f support/ci/docker-compose.yml run --rm rust rustc --version
+      - name: pwd
+        run: |
+          pwd
       - name: inspect
         run: |
           ls -l /usr/local/src
