@@ -1,0 +1,8 @@
+services:
+  rust:
+    build: .
+    image: rust:alpine
+    container_name: rust
+    volumes:
+      - ./school:/usr/local/src/school
+      - ./support/testing:/usr/local/src/testing

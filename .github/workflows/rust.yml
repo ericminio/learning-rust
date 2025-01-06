@@ -21,6 +21,15 @@ jobs:
           cd support/ci
           docker compose run --rm rust pwd
           docker compose run --rm rust ls -l
+          docker compose run --rm rust ls -l /usr/local/src
+          docker compose run --rm rust ls -l /usr/local/src/testing
+      - name: inspect 2
+        run: |
+          cd support/ci
+          docker compose -f ./support/ci/docker-compose-2.yml run --rm rust pwd
+          docker compose -f ./support/ci/docker-compose-2.yml run --rm rust ls -l
+          docker compose -f ./support/ci/docker-compose-2.yml run --rm rust ls -l /usr/local/src
+          docker compose -f ./support/ci/docker-compose-2.yml run --rm rust ls -l /usr/local/src/testing
       - name: tests
         run: |
           cd support/ci
