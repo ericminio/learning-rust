@@ -26,4 +26,4 @@ jobs:
       - name: tests
         run: |
           cd support/ci
-          docker compose run --rm rust bash -c "/usr/local/src/testing/test.sh /usr/local/src/school"
+          docker compose run --rm rust /usr/local/src/testing/test.sh /usr/local/src/school
