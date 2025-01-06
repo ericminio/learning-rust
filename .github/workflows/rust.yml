@@ -16,7 +16,12 @@ jobs:
       - name: info
         run: |
           rustc --version
+      - name: inspect
+        run: |
+          cd support/ci
+          docker compose run --rm rust pwd
+          docker compose run --rm rust ls -l
       - name: tests
         run: |
           cd support/ci
-          docker compose run --rm rust /usr/local/src/testing/test.sh /usr/local/src/school
+          docker compose run --rm rust testing/test.sh school
