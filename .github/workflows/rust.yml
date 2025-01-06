@@ -13,16 +13,12 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-      - name: update /etc/hosts
-        run: |
-          sudo echo "172.17.0.1 host.docker.internal" | sudo tee -a /etc/hosts
-          cat /etc/hosts
-      - name: rust version
-        run: |
-          docker compose -f support/ci/docker-compose.yml run --rm rust rustc --version
-      - name: pwd
+      - name: info
         run: |
           pwd
+          ls -l
+          docker --version
+          rustc --version
       - name: inspect
         run: |
           ls -l /usr/local/src
@@ -30,4 +26,5 @@ jobs:
           ls -l /usr/local/src/testing
       - name: tests
         run: |
-          docker compose -f support/ci/docker-compose.yml run --rm rust /usr/local/src/testing/test.sh /usr/local/src/school
+          cd support/ci
+          docker compose run --rm rust /usr/local/src/testing/test.sh /usr/local/src/school
