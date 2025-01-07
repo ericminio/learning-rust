@@ -16,6 +16,7 @@ jobs:
       - name: info
         run: |
           rustc --version
+          cargo --version
       - name: build
         run: |
           docker build support/ci -t rust:alpine
