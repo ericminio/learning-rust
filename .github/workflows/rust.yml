@@ -16,14 +16,9 @@ jobs:
       - name: info
         run: |
           rustc --version
-      - name: inspect
+      - name: build
         run: |
-          cd support/ci
-          docker compose run --rm rust pwd
-          docker compose run --rm rust ls -l
-          docker compose run --rm rust ls -l /usr/local/src
-          docker compose run --rm rust ls -l /usr/local/src/testing
+          docker build support/ci -t rust:alpine
       - name: tests
         run: |
-          cd support/ci
-          docker compose run --rm rust /usr/local/src/testing/test.sh /usr/local/src/school
+          docker run --rm -v "$(pwd)/school:/usr/local/src/school" -v "$(pwd)/support/testing:/usr/local/src/testing" -it rust:alpine /usr/local/src/testing/test.sh /usr/local/src/school
