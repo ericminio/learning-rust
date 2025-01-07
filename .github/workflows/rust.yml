@@ -21,4 +21,4 @@ jobs:
           docker build support/ci -t rust:alpine
       - name: tests
         run: |
-          docker run --rm -v "$(pwd)/school:/usr/local/src/school" -v "$(pwd)/support/testing:/usr/local/src/testing" -it rust:alpine /usr/local/src/testing/test.sh /usr/local/src/school
+          docker run --rm -v "$(pwd)/school:/usr/local/src/school" -v "$(pwd)/support/testing:/usr/local/src/testing" rust:alpine /usr/local/src/testing/test.sh /usr/local/src/school
